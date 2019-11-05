@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Video Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="main.css" rel="stylesheet">
+  <style>
+    canvas {
+  position:absolute;
+  z-index: 100;
+  }
+  #main {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row h-10 w-100">
+      <div class="col">
+        <select id="filter" class="w-100 bg-dark text-light ml-2 mt-2 select font-weight-bold border">
+          <option value="none">Normal</option>
+          <option value="grayscale(100%)">B & W</option>
+          <option value="sepia(100%)">Old School</option>
+          <option value="contrast(150%)">Lumination</option>
+          <option value="blur(20px)">Hidden Mist</option>
+          <option value="invert(100%)">Dracula</option>
+          <option value="hue-rotate(180deg">X-men Beast</option>
+          <option value="saturate(25)">Super Saiyan God</option>
+        </select>
+      </div>
+      <div class="col">
+        <div class="float-right mt-3">
+          <input class="form-check-input" type="checkbox" id="theme">
+          <label class="form-check-label" for="theme">
+            Dark Theme
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="main" class="row">
+      <div class="col-12">
+        <div class="">
+          <canvas id="canvas1"></canvas>
+          <video class="embed-responsive-item" id="video1" width="720" height="560" autoplay muted></video> </div>
+      </div>
+      <div class="col-12">
+        <div id="peerDiv">
+          <canvas id="canvas2"  width="720" height="560"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button type="submit" id="stopbtn" name="button">Stop</button>
+  <div id="result">
+
+  </div>
+  <script src="face-api.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="bundle.js"></script>
+</body>
+
+</html>
